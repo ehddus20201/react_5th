@@ -2,6 +2,7 @@ import React, { createElement as h } from "./lib/react.js";
 import ReactDom, { createRoot } from "./lib/react-dom.js";
 import { PlanetPage } from "./pages/PlanetPage.js";
 import { _PlanetPage } from "./pages/_PlanetPage.js";
+import  AvatarPage  from "./pages/AvatarPage.js";
 
 
 
@@ -27,7 +28,7 @@ const container = document.getElementById('app')
 
 if(container){
   const reactrDomRoot = ReactDom.createRoot(container);
-  reactrDomRoot.render(h(_PlanetPage));
+  reactrDomRoot.render(h(AvatarPage));
 }
 
 

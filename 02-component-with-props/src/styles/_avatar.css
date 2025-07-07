@@ -1,0 +1,44 @@
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.avatarList{
+  list-style: none;
+  margin-block:0;
+  display: flex;
+  gap:1rem;
+}
+
+.avatar{
+  --size:64px;
+
+  figure{
+    margin: 0;
+    position: relative;
+
+    .cover{
+      width: var(--size);
+      height: var(--size);
+      background-color: var(--gray-500);
+      border-radius: 50%;
+      overflow: hidden;
+
+      > img{
+        width: var(--size);
+        
+      }
+    }
+
+    figcaption{
+      position: absolute;
+      right: 0px;
+      bottom: -1px;
+    }
+  }
+
+
+}

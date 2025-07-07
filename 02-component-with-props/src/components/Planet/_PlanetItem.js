@@ -1,15 +1,13 @@
 import React,{createElement as h} from "../../lib/react.js";
 
-export class PlanetItem extends React.Component{
+
+export function _PlanetItem ({id,title}/* props */){
 
   // constructor(props){
   //   super();
   //   console.log(props);
     
   // }
-  render(){
-
-    const {title, id} = this.props;
 
     return h('li',
       {className:'item',id:1},
@@ -19,5 +17,4 @@ export class PlanetItem extends React.Component{
         h('img',{src:"./src/icons/icons.svg",alt:'move item'})
       ),
     )
-  }
 }

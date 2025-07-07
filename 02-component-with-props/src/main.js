@@ -1,11 +1,18 @@
 import React, { createElement as h } from "./lib/react.js";
 import ReactDom, { createRoot } from "./lib/react-dom.js";
-import { PlanetPage } from "./pages/PlanetPage.js";
-import { _PlanetPage } from "./pages/_PlanetPage.js";
-import  AvatarPage  from "./pages/AvatarPage.js";
+import PlanetItem from "./components/Planet/PlanetItem.js";
+import PlanetList from "./components/Planet/PlanetList.js";
+import PlanetPage from "./pages/PlanetPage.js"
 
 
-
+const listData = {
+  items: [
+    { id: "1", title: "Life on Earth" },
+    { id: "2", title: "Jupiter's massive storms" },
+    { id: "3", title: "Explore Mars now" },
+    { id: "4", title: "Moonlight and craters" },
+  ],
+};
 
 
 {/* <li class="item">
@@ -18,18 +25,30 @@ import  AvatarPage  from "./pages/AvatarPage.js";
           />
         </button>
       </li> */}
-
 /* class syntax */
+
+// 1. PlanetItem
+
+
+
+
+
+
+
+// 2. PlanetList
+
+// 3. PlanetPage
+
+
+
 /* function syntax */
 
 
 
 const container = document.getElementById('app')
+const reactrDomRoot = ReactDom.createRoot(container);
 
-if(container){
-  const reactrDomRoot = ReactDom.createRoot(container);
-  reactrDomRoot.render(h(AvatarPage));
-}
+reactrDomRoot.render(h(PlanetPage));
 
 
 

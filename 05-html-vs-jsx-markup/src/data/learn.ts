@@ -11,7 +11,7 @@ export const imageType:ImageType = "react"
 
 
 
-export const isShowReactImage: boolean = true;
+export const isShowReactImage: boolean = false;
 
 
 

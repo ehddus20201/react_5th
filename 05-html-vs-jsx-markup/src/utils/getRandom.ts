@@ -1,6 +1,61 @@
-function getRandom(n:number):number{
-
+export default function getRandom(n:number):number{
   return Math.floor(Math.random()*n)
 }
 
-export default getRandom
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function getRandom(n:number):number{
+
+//   return Math.floor(Math.random()*n)
+// }
+
+// export default getRandom

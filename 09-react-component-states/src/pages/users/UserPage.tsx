@@ -17,7 +17,7 @@ function UserPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isInstantSearch, setIsInstantSearch] = useState(false);
 
-  
+
 
   /* [상태 업데이트] ---------------------------------- */
 

@@ -20,6 +20,8 @@ const render = () => {
   console.log('re-render');
   
   checkbox.checked = checked;
+  console.log(checked);
+  
   if(checked){
     button.removeAttribute('disabled');
     button.textContent = '활성 상태';
@@ -50,7 +52,7 @@ const update = (globalThis.update = (value) => setState('checked',value) )
 
 const [state,setState] = createState(data,render);
 
-console.log('초기 상태', state.checked);
+// console.log('초기 상태', state.checked);
 
 
 const container = document.getElementById('declarative-programming')!;

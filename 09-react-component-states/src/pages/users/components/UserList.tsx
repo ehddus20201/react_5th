@@ -17,6 +17,6 @@ function UserList({users}:Props) {
         ))
       }
     </ul>
-  )
+  ) 
 }
 export default UserList

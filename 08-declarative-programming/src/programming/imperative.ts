@@ -7,7 +7,7 @@ const template = /* html */`
     <br />
     <button type="submit" id="button">Submit</button>
     <p id="loading" style="display:none">Loading...</p>
-    <p id="error" style="display:none; color:red;">error!</p>
+    <p id="error" style='display:none; color:red;'>error!</p>
   </form>
   <h1 id="success" style="display:none">정답입니다~~~!!</h1>
   <hr />
@@ -28,10 +28,73 @@ const error = document.getElementById('error') as HTMLParagraphElement;
 const success = document.getElementById('success') as HTMLHeadingElement;
 
 
-const hide = (el:HTMLElement) => el.style.display = 'none';
-const show = (el:HTMLElement) => el.style.display = 'block';
-const enable = (el:HTMLElement & {disabled:boolean}) => el.disabled = false;
-const disable = (el:HTMLElement & {disabled:boolean}) => el.disabled = true;
+const show = (content:HTMLElement)=>content.style.display='block'; 
+const hide = (content:HTMLElement)=>content.style.display='none'; 
+const disable = (content:HTMLElement & {disabled:boolean})=>content.disabled=true; 
+const enable = (content:HTMLElement & {disabled:boolean})=>content.disabled=false; 
+
+// 타입이랑 속성은 구분해야해서  불린을 {}로 묶어서 타입으로 만든다음 & 연산자로 결합
+
+
+
+
+// console.log(textarea.value);
+
+// function handleButton(e:MouseEvent){
+//   e.preventDefault();
+//   disable(textarea)
+//   disable(button)
+//   show(loading)
+
+//   setTimeout(() => {
+//   enable(textarea)
+//   enable(button)
+//   hide(loading)
+//   if(textarea.value.trim()==='노동연'){
+//     show(success)
+//     textarea.value=''
+//     hide(form)
+
+//   }else{
+//     textarea.value=''
+
+//     show(error)
+
+//   }
+    
+//   }, 2000);
+  
+// }
+
+
+
+// button.addEventListener('click',handleButton)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const hide = (el:HTMLElement) => el.style.display = 'none';
+// const show = (el:HTMLElement) => el.style.display = 'block';
+// const enable = (el:HTMLElement & {disabled:boolean}) => el.disabled = false;
+// const disable = (el:HTMLElement & {disabled:boolean}) => el.disabled = true;
 
 
 const handleTextareaChange = () => {
@@ -43,45 +106,101 @@ const handleTextareaChange = () => {
 }
 
 
-const submitForm = (answer:string):Promise<string> => {
-  return new Promise((resolve, reject) => {
+// const submitForm = (answer:string):Promise<string> => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if(answer.toLowerCase() === '노동연'){
+//         resolve('👍');
+//       }else{
+//         reject(new Error('땡! 너는 이미 정답을 알고있다.'));
+//       }
+//     }, 1500);
+//   })
+// }
+
+
+
+
+const submitForm = (text:string):Promise<string>=>{
+  return new Promise((resolve,reject) =>{
     setTimeout(() => {
-      if(answer.toLowerCase() === '노동연'){
-        resolve('👍');
-      }else{
-        reject(new Error('땡! 너는 이미 정답을 알고있다.'));
-      }
+      
+    
+    if(text.trim()==='노동연'){
+      resolve('좋아용!')
+    }else{
+      reject(new Error('아으 그거도 모르냐 아으'))
+    }
     }, 1500);
+
   })
+
 }
 
 
-const handleFormSubmit = async (e:SubmitEvent) => {
+const handleFormSubmit = async (e:SubmitEvent)=>{
   e.preventDefault();
-
-  disable(textarea)
-  disable(button)
-  show(loading)
-
+  disable(textarea);
+  disable(button);
+  show(loading);
   try{
     await submitForm(textarea.value);
-    show(success);
-    hide(form);
+    show(success)
 
+    
   }
   catch(err){
-    show(error);
+console.log(err.message);
     if(err instanceof Error){
       error.textContent = err.message
+      show(error);
+      
+      
     }
+
   }
   finally{
     hide(loading);
     enable(textarea);
     enable(button);
+//     show(error);
+
   }
-  
+
+
+
 }
+
+
+
+
+
+// const handleFormSubmit = async (e:SubmitEvent) => {
+//   e.preventDefault();
+
+//   disable(textarea)
+//   disable(button)
+//   show(loading)
+
+//   try{
+//     await submitForm(textarea.value);
+//     show(success);
+//     hide(form);
+
+//   }
+//   catch(err){
+//     show(error);
+//     if(err instanceof Error){
+//       error.textContent = err.message
+//     }
+//   }
+//   finally{
+//     hide(loading);
+//     enable(textarea);
+//     enable(button);
+//   }
+  
+// }
 
 
 // submitForm('윤대웅') resolve , reject
